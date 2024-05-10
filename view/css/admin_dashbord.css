@@ -159,3 +159,55 @@
     justify-content: center;
     align-items: center;
 }
+
+/* Resetting default styles for better consistency */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Styling the parent element (heading) */
+#parent_element {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Styling the table */
+#child_element {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Styling table header */
+#child_element th {
+    background-color: #f2f2f2;
+    padding: 12px;
+    text-align: left;
+}
+
+/* Styling table rows */
+#child_element td {
+    padding: 12px;
+}
+
+/* Alternate row color for better readability */
+#child_element tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Styling edit and delete buttons */
+.edit_btn, .delete_btn {
+    display: inline-block;
+    padding: 6px 12px;
+    text-decoration: none;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.edit_btn:hover, .delete_btn:hover {
+    background-color: #45a049;
+}

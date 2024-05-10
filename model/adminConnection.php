@@ -22,5 +22,17 @@ class model
         $result = $conn->query($sql);
         return $result;
     }
+    function showDoctors($conn,$table)
+    {
+        $sql = "SELECT * FROM $table";
+        $result = $conn->query($sql);
+        return $result;
+    }
+    function deleteDoctor($conn,$table,$id)
+    {
+        $sql = "DELETE FROM $table WHERE id=$id";
+        $result = $conn->query($sql);
+        return $result;
+    }
 }
 ?>

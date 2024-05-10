@@ -75,6 +75,58 @@
         <canvas id="myChart"></canvas>
     </div>
 
+    <!-- Doctor Section -->
+    <br>
+    <br>
+    <h3 class="text_center" id="parent_element">Doctor Information</h3>
+    <table id="child_element">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Doctor Available Time</th>
+                <th>Phone</th>
+                <th>Gender</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <?php
+            $mydb1 = new model();
+            $connobj = $mydb1->openConn();
+            $result = $mydb1->showDoctors($connobj, "doctor");
+            if ($result) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $id = $row['id'];
+                    $name = $row['name'];
+                    $email = $row['email'];
+                    $password = $row['password'];
+                    $time = $row['apointment_time'];
+                    $phone = $row['phone'];
+                    $gender = $row['gender'];
+                    echo
+                    '<tr>
+                    <td>' . $id . '</td>
+              <td>' . $name . '</td>
+              <td>' . $email . '</td>
+              <td>' . $password . '</td>
+              <td>' . $time . '</td>
+              <td>' . $phone . '</td>
+              <td>' . $gender . '</td>
+              <td><a class= "edit_btn" href="../controller/edit_doctor_info.php?id=' . $id . '">Edit</a></td>
+              <td><a class = "delete_btn" href="../controller/delete_selected_doctor.php?id=' . $id . '">Delete</a></td>
+            </tr>';
+                }
+            }
+
+            ?>
+        </tbody>
+    </table>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script>
