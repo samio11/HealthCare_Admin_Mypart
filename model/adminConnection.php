@@ -16,6 +16,11 @@ class model
         $result = $conn->query($sql);
         return $result;
     }
-
+     function showInfo($conn,$table)
+    {
+        $sql = "SELECT * FROM $table";
+        $result = $conn->query($sql);
+        return $result;
+    }
 }
 ?>
