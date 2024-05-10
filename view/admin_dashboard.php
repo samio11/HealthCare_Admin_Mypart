@@ -44,8 +44,8 @@
             $mydb = new Model();
             $conObj = $mydb->OpenConn();
             $result = $mydb->showInfo($conObj, "doctor");
-             $showDoctor = $result->num_rows;
-             echo '<p class="second-text">'.$showDoctor.'</p>';
+            $showDoctor = $result->num_rows;
+            echo '<p id="s1" class="second-text">' . $showDoctor . '</p>';
             ?>
         </div>
         <div class="card1 blue">
@@ -54,8 +54,8 @@
             $mydb = new Model();
             $conObj = $mydb->OpenConn();
             $result = $mydb->showInfo($conObj, "medical_stuff");
-             $showStuff = $result->num_rows;
-             echo '<p class="second-text">'.$showStuff.'</p>';
+            $showStuff = $result->num_rows;
+            echo '<p id="s2" class="second-text">' . $showStuff . '</p>';
             ?>
         </div>
         <div class="card1 green">
@@ -64,11 +64,46 @@
             $mydb = new Model();
             $conObj = $mydb->OpenConn();
             $result = $mydb->showInfo($conObj, "patient");
-             $showStuff = $result->num_rows;
-             echo '<p class="second-text">'.$showStuff.'</p>';
+            $showStuff = $result->num_rows;
+            echo '<p id="s3" class="second-text">' . $showStuff . '</p>';
             ?>
         </div>
     </div>
+
+    <!-- chart Section -->
+    <div class="shorten">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const ctx = document.getElementById('myChart');
+        let doctor = parseInt(document.getElementById('s1').innerText);
+        let stuff = parseInt(document.getElementById('s2').innerText);
+        let patient = parseInt(document.getElementById('s3').innerText);
+
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: [
+                    'Doctor',
+                    'Medical Stuffs',
+                    'Patient'
+                ],
+                datasets: [{
+                    label: 'All User In SYSTEM',
+                    data: [doctor, stuff, patient],
+                    backgroundColor: [
+                        'rgb(255, 99, 132)',
+                        'rgb(54, 162, 235)',
+                        'rgb(255, 205, 86)'
+                    ],
+                    hoverOffset: 4
+                }]
+            }
+        });
+    </script>
 
     <script>
         function logOut() {
