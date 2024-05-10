@@ -13,7 +13,7 @@ if (isset($_POST['submit'])) {
     $phone = $_POST['phone'];
     $address = $_POST['address'];
 
-    $result = $mydb->admin_registration($conobj, "admin", $name, $email, $password, $profile_picture, $phone, $address);
+    $result = $mydb->admin_registration($conobj, "admin", $name, $email, $password, $phone,$profile_picture, $address);
 
     if ($result) {
         $target_directory = "picture/";
