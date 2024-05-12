@@ -1,0 +1,68 @@
+/* Overall form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Labels and input fields */
+  p {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 16px;
+  }
+  
+  /* Specific styling for appointment time input */
+  input[type="text"]#phone1 { /* Assuming this is for appointment time */
+    background-color: #eee;
+  }
+  
+  /* Submit button */
+  .common_btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #3498db;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .common_btn:hover {
+    background-color: #2980b9;
+  }
+  
+  /* "Back Home" button */
+  .common_btn[href] {
+    background-color: #e74c3c;
+    margin-top: 15px;
+  }
+  
+  .common_btn[href]:hover {
+    background-color: #c0392b;
+  }
+  
+  /* Center alignment for buttons */
+  .center {
+    text-align: center;
+    margin-top: 20px;
+  }
+  

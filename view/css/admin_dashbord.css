@@ -211,3 +211,13 @@ body, html {
 .edit_btn:hover, .delete_btn:hover {
     background-color: #45a049;
 }
+
+.center12{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100px;
+}
+
+

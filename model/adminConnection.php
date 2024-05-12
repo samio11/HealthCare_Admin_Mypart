@@ -34,5 +34,17 @@ class model
         $result = $conn->query($sql);
         return $result;
     }
+    function updateDoctorInfo($conn,$table,$id,$name,$email,$password,$apoinment_time,$phone,$gender)
+    {
+        $sql = "UPDATE $table SET name='$name',email='$email',password='$password',apointment_time='$apoinment_time',phone='$phone',gender='$gender' WHERE id=$id";
+        $result = $conn->query($sql);
+        return $result;
+    }
+    function showSpecificDoctor($conn,$table,$id)
+    {
+        $sql = "SELECT * FROM $table WHERE id=$id";
+        $result = $conn->query($sql);
+        return $result;
+    }
 }
 ?>

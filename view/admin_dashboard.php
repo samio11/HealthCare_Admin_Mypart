@@ -117,7 +117,7 @@
               <td>' . $time . '</td>
               <td>' . $phone . '</td>
               <td>' . $gender . '</td>
-              <td><a class= "edit_btn" href="../controller/edit_doctor_info.php?id=' . $id . '">Edit</a></td>
+              <td><a class= "edit_btn" href="../controller/edit_doctor_information.php?id=' . $id . '">Edit</a></td>
               <td><a class = "delete_btn" href="../controller/delete_selected_doctor.php?id=' . $id . '">Delete</a></td>
             </tr>';
                 }
@@ -126,6 +126,7 @@
             ?>
         </tbody>
     </table>
+
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
