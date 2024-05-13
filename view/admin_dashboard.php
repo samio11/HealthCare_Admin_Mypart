@@ -126,11 +126,88 @@
             ?>
         </tbody>
     </table>
+
     <div class="div_center">
         <div>
             <a class="edit_btn" href="../controller/add_doctor.php">Add new Doctor</a>
         </div>
     </div>
+
+    <!-- Patient Section -->
+    <br>
+    <br>
+    <h3 class="text_center" id="parent_element">Patient Information</h3>
+    <!-- search box for patient information -->
+    <div class="div_center">
+        <div class="search-container">
+            <input type="text" id="search-input" onkeyup="getUser()" placeholder="Search Name Of Patient">
+            <button type="submit" id="search-button"><img src="./picture/search.png" alt=""></button>
+        </div>
+    </div><br><br>
+    <table id="child_element">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Blood Group</th>
+                <th>Gender</th>
+            </tr>
+        </thead>
+        <tbody id="txt1">
+
+        </tbody>
+    </table>
+    <br><br>
+    <table id="child_element">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Blood Group</th>
+                <th>Gender</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <?php
+            $mydb1 = new model();
+            $connobj = $mydb1->openConn();
+            $result = $mydb1->showInfo($connobj, "patient");
+            if ($result) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $id = $row['id'];
+                    $name = $row['name'];
+                    $email = $row['email'];
+                    $password = $row['password'];
+                    $phone = $row['phone'];
+                    $address = $row['address'];
+                    $blood_group = $row['blood_group'];
+                    $gender = $row['gender'];
+                    echo
+                    '<tr>
+                    <td>' . $id . '</td>
+              <td>' . $name . '</td>
+              <td>' . $email . '</td>
+              <td>' . $password . '</td>
+              <td>' . $phone . '</td>
+              <td>' . $address . '</td>
+              <td>' . $blood_group . '</td>
+              <td>' . $gender . '</td>
+            </tr>';
+                }
+            }
+
+            ?>
+        </tbody>
+    </table>
 
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -168,6 +245,7 @@
             window.location.href = "../controller/admin_logout.php";
         }
     </script>
+    <script src="../controller/js/search.js"></script>
 </body>
 
 </html>

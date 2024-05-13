@@ -46,7 +46,6 @@ include './add_doctor_database.php';
             <a class="common_btn" href="../view/admin_dashboard.php">Back Home</a>
         </div>
     </div>
-    <!-- ss -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     <script>
         function validateDoctorAdd() {
@@ -105,7 +104,6 @@ include './add_doctor_database.php';
         }
     </script>
 
-    <!-- <script src="./js/add_doctor_info.js"></script> -->
 </body>
 
 </html>

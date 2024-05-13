@@ -22,6 +22,12 @@ class model
         $result = $conn->query($sql);
         return $result;
     }
+     function showInfo1($conn,$table,$search)
+    {
+        $sql = "SELECT * FROM $table WHERE name LIKE '%$search%'";
+        $result = $conn->query($sql);
+        return $result;
+    }
     function showDoctors($conn,$table)
     {
         $sql = "SELECT * FROM $table";

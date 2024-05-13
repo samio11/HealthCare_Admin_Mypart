@@ -228,3 +228,46 @@ body, html {
   justify-content: center;
   align-items: center;
 }
+
+
+.search-container {
+  display: flex;
+  align-items: center;
+  max-width: 400px;
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+/* Style the search input */
+#search-input {
+  flex: 1; /* Take remaining width */
+  border: none;
+  padding: 8px;
+  font-size: 16px;
+  outline: none; /* Remove default input focus outline */
+}
+
+/* Style the search button */
+#search-button {
+  background-color: #007bff; /* Blue button color */
+  color: #fff;
+  border: none;
+  border-radius: 0 5px 5px 0; /* Rounded corners on the right */
+  padding: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect on the search button */
+#search-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Font Awesome icon styles */
+.fa-search {
+  font-size: 18px;
+}
