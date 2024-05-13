@@ -148,7 +148,7 @@
     <!-- search box for patient information -->
     <div class="div_center">
         <div class="search-container">
-            <input type="text" id="search-input" onkeyup="getUser()" placeholder="Search Name Of Patient">
+            <input type="text" id="search-input" onkeyup="getUser()" placeholder="Search Blood Group Of Patient">
             <button type="submit" id="search-button"><img src="./picture/search.png" alt=""></button>
         </div>
     </div><br><br>
@@ -209,6 +209,55 @@
               <td>' . $address . '</td>
               <td>' . $blood_group . '</td>
               <td>' . $gender . '</td>
+            </tr>';
+                }
+            }
+
+            ?>
+        </tbody>
+    </table>
+    <h3 class="text_center" id="parent_element">Medical Stuff Information</h3>
+    <br><br>
+    <table id="child_element">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Gender</th>
+                <th>Phone</th>
+                <th>Working Hour</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <?php
+            $mydb1 = new model();
+            $connobj = $mydb1->openConn();
+            $result = $mydb1->showInfo($connobj, "medical_stuff");
+            if ($result) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $id = $row['id'];
+                    $name = $row['name'];
+                    $email = $row['email'];
+                    $password = $row['password'];
+                    $gender = $row['gender'];
+                    $phone = $row['phone'];
+                    $working = $row['working_hour'];
+                    echo
+                    '<tr>
+                    <td>' . $id . '</td>
+              <td>' . $name . '</td>
+              <td>' . $email . '</td>
+              <td>' . $password . '</td>
+              <td>' . $gender . '</td>
+              <td>' . $phone . '</td>
+              <td>' . $working . '</td>
+              <td><a class= "edit_btn" href="../controller/edit_stuff_information.php?id=' . $id . '">Edit</a></td>
+              <td><a class = "delete_btn" href="../controller/delete_stuff_information.php?id=' . $id . '">Delete</a></td>
             </tr>';
                 }
             }

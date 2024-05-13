@@ -24,7 +24,7 @@ class model
     }
      function showInfo1($conn,$table,$search)
     {
-        $sql = "SELECT * FROM $table WHERE name LIKE '%$search%'";
+        $sql = "SELECT * FROM $table WHERE blood_group LIKE '%$search%' OR name LIKE '%$search%'";
         $result = $conn->query($sql);
         return $result;
     }
@@ -40,12 +40,25 @@ class model
         $result = $conn->query($sql);
         return $result;
     }
+    function deleteStuff($conn,$table,$id)
+    {
+        $sql = "DELETE FROM $table WHERE id=$id";
+        $result = $conn->query($sql);
+        return $result;
+    }
     function updateDoctorInfo($conn,$table,$id,$name,$email,$password,$apoinment_time,$phone,$gender)
     {
         $sql = "UPDATE $table SET name='$name',email='$email',password='$password',apointment_time='$apoinment_time',phone='$phone',gender='$gender' WHERE id=$id";
         $result = $conn->query($sql);
         return $result;
     }
+    function updateStuffInfo($conn,$table,$id,$name,$email,$password,$gender,$phone,$working_hour)
+    {
+        $sql = "UPDATE $table SET name='$name',email='$email',password='$password',gender='$gender',phone='$phone',working_hour='$working_hour' WHERE id=$id";
+        $result = $conn->query($sql);
+        return $result;
+    }
+        
     function showSpecificDoctor($conn,$table,$id)
     {
         $sql = "SELECT * FROM $table WHERE id=$id";
