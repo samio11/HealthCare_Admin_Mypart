@@ -126,6 +126,11 @@
             ?>
         </tbody>
     </table>
+    <div class="div_center">
+        <div>
+            <a class="edit_btn" href="../controller/add_doctor.php">Add new Doctor</a>
+        </div>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

@@ -46,5 +46,11 @@ class model
         $result = $conn->query($sql);
         return $result;
     }
+    function doctor_add($conn,$table,$name,$email,$password,$apointment_time,$phone,$gender)
+    {
+        $sql = "INSERT INTO $table (name,email,password,apointment_time,phone,gender) VALUES ('$name','$email','$password','$apointment_time','$phone','$gender')";
+        $result = $conn->query($sql);
+        return $result;
+    }
 }
 ?>
