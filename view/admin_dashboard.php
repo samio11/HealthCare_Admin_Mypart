@@ -265,9 +265,107 @@
             ?>
         </tbody>
     </table>
+    <h3 class="text_center" id="parent_element">All Up Comming Appointments</h3>
+    <br><br>
+    <table id="child_element">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name Of Doctor</th>
+                <th>Name Of Patient</th>
+                <th>Appointment Date</th>
 
+            </tr>
+        </thead>
+
+        <tbody>
+            <?php
+            $mydb1 = new model();
+            $connobj = $mydb1->openConn();
+            $result = $mydb1->showInfo($connobj, "appointment");
+            if ($result) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $id = $row['id'];
+                    $name_of_doctor = $row['name_of_doctor'];
+                    $name_of_patient = $row['name_of_patient'];
+                    $date = $row['appointment_date'];
+                    echo
+                    '<tr>
+                    <td>' . $id . '</td>
+              <td>' . $name_of_doctor . '</td>
+              <td>' . $name_of_patient . '</td>
+              <td>' . $date . '</td>
+            </tr>';
+                }
+            }
+
+            ?>
+        </tbody>
+    </table>
+    <div class="center2">
+        <h2>See Previous Doctor Appointment</h2>
+        <button class="edit_btn" id="generatePdfBtn">Generate PDF</button>
+    </div>
+    <br><br>
+    <table id="child_element1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name Of Patient</th>
+                <th>Appointment Date</th>
+                <th>Prescribed Medicine</th>
+                <th>Doctor</th>
+
+            </tr>
+        </thead>
+
+        <tbody id="save11">
+            <?php
+            $mydb1 = new model();
+            $connobj = $mydb1->openConn();
+            $result = $mydb1->showInfo($connobj, "previous_appointment_analysis");
+            if ($result) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $id = $row['id'];
+                    $name_of_patient = $row['patient_name'];
+                    $date = $row['date'];
+                    $medecine = $row['medecine'];
+                    $doctor = $row['doctor'];
+                    echo
+                    '<tr>
+                    <td>' . $id . '</td>
+              <td>' . $name_of_patient . '</td>
+              <td>' . $date . '</td>
+              <td>' . $medecine . '</td>
+              <td>' . $doctor . '</td>
+            </tr>';
+                }
+            }
+
+            ?>
+        </tbody>
+
+    </table>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script>
+        $("#generatePdfBtn").click(function() {
+            var element = document.getElementById("child_element1");
+            var opt = {
+                margin: 1,
+                filename: "previous_appointments.pdf",
+                image: {
+                    type: 'jpeg',
+                    quality: 0.98
+                }, 
+                html2canvas: {
+                    scale: 2
+                } // Adjust scaling for better quality
+            };
+            html2pdf().from(element).set(opt).save();
+        });
+    </script>
 
     <script>
         const ctx = document.getElementById('myChart');

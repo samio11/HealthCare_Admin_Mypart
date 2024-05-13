@@ -271,3 +271,35 @@ body, html {
 .fa-search {
   font-size: 18px;
 }
+
+.center2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 98vw;
+  gap: 20px;
+  height: 100px;
+}
+
+
+#child_element1 {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Styling table header */
+#child_element1 th {
+  background-color: #f2f2f2;
+  padding: 12px;
+  text-align: left;
+}
+
+/* Styling table rows */
+#child_element1 td {
+  padding: 12px;
+}
+
+/* Alternate row color for better readability */
+#child_element1 tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
